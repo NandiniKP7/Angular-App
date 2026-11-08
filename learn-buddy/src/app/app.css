@@ -1,20 +1,61 @@
-.landing {
-  background: #0e3441;
-  color: white;
+.shell {
+  display: flex;
   min-height: 100vh;
-  text-align: center;
-  padding-top: 80px;
+}
+.sidebar {
+  width: 230px;
+  flex: none;
   box-sizing: border-box;
+  background: #0e3441;
+  color: #cfe3e6;
+  padding: 22px 14px;
 }
-.landing p{
-    color: #bcd6da;
+.brand {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 8px;
 }
-.landing h1{
-    font-size:48px;
-    color:#e3f5ed;
+.tagline {
+  color: #bcd6da;
+  font-size: 12px;
+  padding: 2px 8px 18px;
 }
-.landing .start{
-    background: #15965f;
-    color: white;
-     padding: 12px 0;
+.sidebar a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  padding: 11px 14px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.sidebar a.active {
+  border-left: 4px solid #15965f;
+  background: #235c5d;
+  color: white;
+  font-weight: bold;
+}
+.content {
+  flex: 1;
+  background: #f6f8f8;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-bottom: 1px solid #dfe6ea;
+  padding: 16px 26px;
+}
+.header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+.header span {
+  color: #66788a;
+  font-size: 13px;
+}
+.page {
+  padding: 24px 26px;
 }
