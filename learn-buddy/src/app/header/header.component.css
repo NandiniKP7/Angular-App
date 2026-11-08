@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-bottom: 1px solid var(--line);
+  padding: 16px 26px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.header span {
+  color: var(--muted);
+  font-size: 13px;
+}

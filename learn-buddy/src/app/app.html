@@ -1,32 +1,9 @@
 <div class="shell">
-  <aside class="sidebar">
-    <div class="brand">❖ {{ appName }}</div>
-    <div class="tagline">
-      {{ tagLine }}
-    </div>
-    <nav>
-      <a class="active">MyLearning</a>
-      <a>Roadmap Calendar</a>
-      <a href="#">Topics</a>
-      <a>Practice</a>
-      <a>Mistakes</a>
-      <a>Progress</a>
-      <a>My Diary</a>
-      <a>Settings</a>
-    </nav>
-    <div class="side-footer">
-      <strong>{{ topicsDone }} of {{ topicsTotal }}</strong>
-      Angular topics done ({{ percentDone() }}%)
-    </div>
-  </aside>
+  <app-sidebar></app-sidebar>
   <div class="content">
-    <header class="header">
-      <h2>
-        {{ pageTitle }}
-      </h2>
-      <span>{{ weekday }}</span>
-    </header>
+    <app-header></app-header>
     <main class="page">
+
       <div class="build">
         <small>TODAY'S BUILD · TOPIC {{ topicNo }}</small>
         <strong>{{ topicTitle }}</strong>
@@ -34,8 +11,7 @@
       <section class="card">
         <h3>Welcome to {{ appName }}</h3>
         <p>Learn Angular and TypeScript by building real features.</p>
-        <p>You have finished <strong>{{ topicsDone }} </strong>of {{ topicsTotal }} topics.</p>
-        <p>Topics left: {{ topicsLeft() }}</p>
+       
       </section>
     </main>
   </div>
