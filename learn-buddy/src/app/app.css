@@ -1,0 +1,20 @@
+.landing {
+  background: #0e3441;
+  color: white;
+  min-height: 100vh;
+  text-align: center;
+  padding-top: 80px;
+  box-sizing: border-box;
+}
+.landing p{
+    color: #bcd6da;
+}
+.landing h1{
+    font-size:48px;
+    color:#e3f5ed;
+}
+.landing .start{
+    background: #15965f;
+    color: white;
+     padding: 12px 0;
+}
