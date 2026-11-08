@@ -1,5 +1,24 @@
+:root {
+  --side: #0e3441;
+  --side-active: #235c5d;
+  --mint: #e3f5ed;
+  --green: #15965f;
+  --blue: #3b6fd8;
+  --ink: #10243a;
+  --muted: #66788a;
+  --line: #dfe6ea;
+  --page: #f6f8f8;
+}
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: var(--ink);
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
 }
