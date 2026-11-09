@@ -1,0 +1,53 @@
+
+.tracks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.track {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+}
+.track hover
+{
+    border-color: var(--green)
+}
+.track h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.track p {
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.angular {
+  background: #fff0f0;
+}
+
+.typescript {
+  background: #eaf2ff;
+}
+
+.csharp {
+  background: #f3eeff;
+}
+.java
+{
+    background: lightpink;
+}
+.track button {
+  background: var(--green);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+.track button:hover {
+  background: #138755;
+}
