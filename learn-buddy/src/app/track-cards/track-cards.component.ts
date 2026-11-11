@@ -23,4 +23,10 @@ export class TrackCardsComponent {
   csharpStatus: string = 'Not started';
   angularPercent: number = 5;
   typescriptPercent: number = 30;
+
+  selectedTrack: string = 'Angular';
+
+  select(track: string): void {
+    this.selectedTrack = track;
+  }
 }

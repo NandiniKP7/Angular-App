@@ -1,5 +1,5 @@
 <div class="tracks">
-  <section class="track angular">
+  <section class="track angular" [class.selected]="selectedTrack === angularName">
     <img [src]="angularIcon" [alt]="angularName" [width]="iconSize" [height]="iconSize" />
     <h3>{{ angularName }}</h3>
     <p>Concept-first lessons</p>
@@ -7,9 +7,9 @@
     <div class="bar" [attr.aria-label]="'Angular progress ' + angularPercent + ' percent'">
       <div class="bar-fill" [style.width.%]="angularPercent"></div>
     </div>
-    <button [title]="angularHint">View topics</button>
+    <button [title]="angularHint" (click)="select(angularName)">View topics</button>
   </section>
-  <section class="track typescript">
+  <section class="track typescript" [class.selected]="selectedTrack === typescriptName">
     <img [src]="typescriptIcon" [alt]="typescriptName" [width]="iconSize" [height]="iconSize" />
     <h3>{{ typescriptName }}</h3>
     <p>Follow existing roadmap</p>
@@ -17,9 +17,9 @@
     <div class="bar"  [attr.aria-label]="'TypeScript progress ' + typescriptPercent + ' percent'">
       <div class="bar-fill" [style.width.%]="typescriptPercent"></div>
     </div>
-    <button [title]="typescriptHint">View topics</button>
+    <button [title]="typescriptHint" (click)="select(typescriptName)">View topics</button>
   </section>
-  <section class="track csharp">
+  <section class="track csharp" [class.locked]="csharpLocked" [class.selected]="selectedTrack === csharpName">
     <img [src]="csharpIcon" [alt]="csharpName" [width]="iconSize" [height]="iconSize" />
     <h3>{{ csharpName }}</h3>
     <p>Future learning track, planned for later in the course.</p>
@@ -27,6 +27,7 @@
     <div class="bar" role="progressbar" aria-valuemin="0"  aria-valuemax="100" [attr.aria-label]="'csharp progress ' + 0 + ' percent'">
       <div class="bar-fill" [style.width.%]="0"></div>
     </div>
-    <button [disabled]="csharpLocked" [title]="csharpHint">View topics</button>
+    <button [disabled]="csharpLocked" [title]="csharpHint" (click)="select(csharpName)">View topics</button>
   </section>
 </div>
+<p class="selected-line">Selected track: {{ selectedTrack }}</p>

@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './today-build.component.html',
 })
 export class TodayBuildComponent {
-  topicNo:string="04";
-  topicTitle:string="PropertyBinding"
+  topicNo:string="05";
+  topicTitle:string="EventBinding"
 }

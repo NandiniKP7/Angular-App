@@ -85,3 +85,17 @@
 .locked {
   opacity: 0.65;
 }
+.selected {
+  outline: 3px solid var(--green);
+}
+
+.selected-line {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.track button:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
