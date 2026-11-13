@@ -1,0 +1,63 @@
+
+.sub {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.chip {
+  position: relative;
+}
+
+.chip input {
+  position: absolute;
+  opacity: 0;
+}
+
+.chip span {
+  display: block;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.chip input:checked + span {
+  background: var(--green);
+  border-color: var(--green);
+  color: white;
+}
+
+.chip input:focus-visible + span {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.save {
+  background: var(--green);
+  color: white;
+  border: 0;
+  border-radius: 9px;
+  padding: 9px 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.save:disabled {
+  background: #aab7bd;
+  cursor: not-allowed;
+}
+
+.saved {
+  margin: 12px 0 0;
+  color: var(--green);
+  font-size: 14px;
+}

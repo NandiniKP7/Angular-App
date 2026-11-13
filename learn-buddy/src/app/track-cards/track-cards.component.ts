@@ -17,7 +17,7 @@ export class TrackCardsComponent {
   csharpHint: string = 'Coming later';
   angularHint: string = 'Open the Angular topics';
   typescriptHint: string = 'Open the TypeScript topics';
-  iconSize: number = 48;
+  iconSize: number = 32;
   angularStatus: string = 'In progress';
   typescriptStatus: string = 'Continue roadmap';
   csharpStatus: string = 'Not started';

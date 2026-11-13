@@ -1,0 +1,27 @@
+
+<section class="card">
+  <h3>Angular Roadmap</h3>
+  <p class="sub">{{ topics.length }} of 44 topics shown</p>
+
+  <div class="actions">
+    <button (click)="clear()">Clear list</button>
+    <button (click)="restore()">Restore list</button>
+  </div>
+
+  <ul class="topic-list">
+    @for (topic of topics; track topic.no) {
+      <li class="topic-row">
+        <span class="num">{{ topic.no }}.</span>
+        <span class="title">{{ topic.title }}</span>
+        <span
+          class="badge"
+          [class.done]="topic.status === 'Completed'"
+          [class.progress]="topic.status === 'In progress'">
+          {{ topic.status }}
+        </span>
+      </li>
+    } @empty {
+      <li class="empty">No topics to show.</li>
+    }
+  </ul>
+</section>

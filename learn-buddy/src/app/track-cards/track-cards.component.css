@@ -1,30 +1,21 @@
-.tracks {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
 
-.track {
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 16px;
-}
-.track hover {
-  border-color: var(--green);
-}
-.track h3 {
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.track p {
+.sub {
+  margin: 0 0 12px;
   color: var(--muted);
-  margin:0 0 8px;
-  margin-bottom: 24px;
+  font-size: 13px;
+}
+
+.track-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
 }
 
 .angular {
-  background: #fff0f0;
+  background: #eaf7ef;
 }
 
 .typescript {
@@ -32,59 +23,47 @@
 }
 
 .csharp {
-  background: #f3eeff;
-}
-.csharp h3{
- color:var(--muted)
+  background: #f6f0ff;
 }
 
-.track button {
+.info {
+  flex: 1;
+}
+
+.info strong {
+  display: block;
+  font-size: 16px;
+}
+
+.info span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.track-row button {
   background: var(--green);
   color: white;
-  font-weight: bold;
-  border: none;
+  border: 0;
   border-radius: 9px;
+  padding: 8px 18px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.track button:hover {
-  background: #138755;
-}
-.track img {
-  display: block;
-  margin-bottom: 8px;
-}
-.track button:disabled {
+.track-row button:disabled {
   background: #aab7bd;
   cursor: not-allowed;
-  filter: none;
-  border:1px dashed var(--muted)
-
-}
-.status {
-  display: inline-block;
-  margin-bottom: 8px;
-  font-size: 11px;
-  font-weight: bold;
-  color: var(--green);
 }
 
-.bar {
-  height: 8px;
-  margin-bottom: 16px;
-  background: #dde7e5;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.bar-fill {
-  height: 100%;
-  background: var(--green);
+.track-row button:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
 }
 
 .locked {
   opacity: 0.65;
 }
+
 .selected {
   outline: 3px solid var(--green);
 }
@@ -93,9 +72,4 @@
   margin: 12px 0 0;
   color: var(--muted);
   font-size: 14px;
-}
-
-.track button:focus-visible {
-  outline: 3px solid var(--blue);
-  outline-offset: 2px;
 }

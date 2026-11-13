@@ -1,6 +1,16 @@
-app-today-build,
-app-welcome-card,
-app-track-cards {
+app-today-build {
   display: block;
   margin-bottom: 16px;
+}
+.two-col {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 16px;
+}
+@media (max-width: 800px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
 }

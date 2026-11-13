@@ -1,33 +1,41 @@
 <div class="tracks">
-  <section class="track angular" [class.selected]="selectedTrack === angularName">
-    <img [src]="angularIcon" [alt]="angularName" [width]="iconSize" [height]="iconSize" />
-    <h3>{{ angularName }}</h3>
-    <p>Concept-first lessons</p>
-    <span class="status">{{ angularStatus }}</span>
-    <div class="bar" [attr.aria-label]="'Angular progress ' + angularPercent + ' percent'">
-      <div class="bar-fill" [style.width.%]="angularPercent"></div>
+  <section class="card">
+    <h3>Choose a Learning Track</h3>
+    <p class="sub">Visual controls and typed topic list</p>
+
+    <div class="track-row angular" [class.selected]="selectedTrack === angularName">
+      <img [src]="angularIcon" [alt]="angularName" width="32" height="32" />
+      <div class="info">
+        <strong>{{ angularName }}</strong>
+        <span class="status">{{ angularStatus }}</span>
+      </div>
+      <button [title]="angularHint" (click)="select(angularName)">View</button>
     </div>
-    <button [title]="angularHint" (click)="select(angularName)">View topics</button>
-  </section>
-  <section class="track typescript" [class.selected]="selectedTrack === typescriptName">
-    <img [src]="typescriptIcon" [alt]="typescriptName" [width]="iconSize" [height]="iconSize" />
-    <h3>{{ typescriptName }}</h3>
-    <p>Follow existing roadmap</p>
-    <span class="status">{{typescriptStatus}}</span>
-    <div class="bar"  [attr.aria-label]="'TypeScript progress ' + typescriptPercent + ' percent'">
-      <div class="bar-fill" [style.width.%]="typescriptPercent"></div>
+
+    <div class="track-row typescript" [class.selected]="selectedTrack === typescriptName">
+      <img [src]="typescriptIcon" [alt]="typescriptName" width="32" height="32" />
+      <div class="info">
+        <strong>{{ typescriptName }}</strong>
+        <span class="status">{{ typescriptStatus }}</span>
+      </div>
+      <button [title]="typescriptHint" (click)="select(typescriptName)">View</button>
     </div>
-    <button [title]="typescriptHint" (click)="select(typescriptName)">View topics</button>
-  </section>
-  <section class="track csharp" [class.locked]="csharpLocked" [class.selected]="selectedTrack === csharpName">
-    <img [src]="csharpIcon" [alt]="csharpName" [width]="iconSize" [height]="iconSize" />
-    <h3>{{ csharpName }}</h3>
-    <p>Future learning track, planned for later in the course.</p>
-    <span class="status">{{csharpStatus}}</span>
-    <div class="bar" role="progressbar" aria-valuemin="0"  aria-valuemax="100" [attr.aria-label]="'csharp progress ' + 0 + ' percent'">
-      <div class="bar-fill" [style.width.%]="0"></div>
+
+    <div
+      class="track-row csharp"
+      [class.selected]="selectedTrack === csharpName"
+      [class.locked]="csharpLocked"
+    >
+      <img [src]="csharpIcon" [alt]="csharpName" width="32" height="32" />
+      <div class="info">
+        <strong>{{ csharpName }}</strong>
+        <span class="status">{{ csharpStatus }}</span>
+      </div>
+      <button [disabled]="csharpLocked" [title]="csharpHint" (click)="select(csharpName)">
+        View
+      </button>
     </div>
-    <button [disabled]="csharpLocked" [title]="csharpHint" (click)="select(csharpName)">View topics</button>
+
+    <p class="selected-line">Selected track: {{ selectedTrack }}</p>
   </section>
 </div>
-<p class="selected-line">Selected track: {{ selectedTrack }}</p>

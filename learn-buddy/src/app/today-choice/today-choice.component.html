@@ -1,0 +1,35 @@
+
+<section class="card">
+  <h3>Today's choice</h3>
+  <p class="sub">How much time do you have?</p>
+
+  <div class="chips" role="radiogroup" aria-label="Time today">
+    <label class="chip">
+      <input type="radio" name="time" value="15 min" [(ngModel)]="choice">
+      <span>15 min</span>
+    </label>
+
+    <label class="chip">
+      <input type="radio" name="time" value="30 min" [(ngModel)]="choice">
+      <span>30 min</span>
+    </label>
+
+    <label class="chip">
+      <input type="radio" name="time" value="60 min" [(ngModel)]="choice">
+      <span>60 min</span>
+    </label>
+
+    <label class="chip">
+      <input type="radio" name="time" value="Rest" [(ngModel)]="choice">
+      <span>Rest</span>
+    </label>
+  </div>
+
+  <button class="save" (click)="save()" [disabled]="choice === ''">
+    Save preference
+  </button>
+
+  <p class="saved" [hidden]="saved === ''">
+    Saved: {{ saved }}
+  </p>
+</section>
