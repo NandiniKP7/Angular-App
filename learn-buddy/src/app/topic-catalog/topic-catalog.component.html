@@ -1,7 +1,20 @@
 
 <section class="card">
   <h3>Angular Roadmap</h3>
-  <p class="sub">{{ topics.length }} of 44 topics shown</p>
+  @if(filter==="All")
+  {
+   <p class="sub">{{ topics.length }} of 44 topics shown</p>
+  }
+  @else {
+   <p class="sub">{{ visibleTopics().length }} topics: {{ filter }}</p>.
+  }
+  <div class="chips">
+    <button class="chip" [class.on]="filter==='All'"(click)="setFilter('All')">All</button>
+    <button class="chip"[class.on]="filter==='Completed'" (click)="setFilter('Completed')">Completed</button>
+    <button class="chip" [class.on]="filter==='In progress'"(click)="setFilter('In progress')">In progress</button>
+    <button class="chip"[class.on]="filter==='Not started'"(click)="setFilter('Not Started')">Not started</button>
+  </div>
+
 
   <div class="actions">
     <button (click)="clear()">Clear list</button>
@@ -9,7 +22,7 @@
   </div>
 
   <ul class="topic-list">
-    @for (topic of topics; track topic.no) {
+    @for (topic of visibleTopics(); track topic.no) {
       <li class="topic-row">
         <span class="num">{{ topic.no }}.</span>
         <span class="title">{{ topic.title }}</span>

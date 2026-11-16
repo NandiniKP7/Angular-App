@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 const ANGULAR_TOPICS = [
-  { no: '01', title: 'Angular Application Setup & Architecture', status: 'Not Started' },
-  { no: '02', title: 'String Interpolation', status: 'Not Started' },
-  { no: '03', title: 'Components', status: 'Not Started' },
-  { no: '04', title: 'Property Binding', status: 'Not Started' },
-  { no: '05', title: 'Event Binding', status: 'Not Started' },
-  { no: '06', title: 'Two-Way Binding', status: 'Not Started' },
-  { no: '07', title: 'Angular Template Control Flow', status: 'Not Started' },
+  { no: '01', title: 'Angular Application Setup & Architecture', status: 'Completed' },
+  { no: '02', title: 'String Interpolation', status: 'Completed' },
+  { no: '03', title: 'Components', status: 'Completed' },
+  { no: '04', title: 'Property Binding', status: 'Completed' },
+  { no: '05', title: 'Event Binding', status: 'Completed' },
+  { no: '06', title: 'Two-Way Binding', status: 'Completed' },
+  { no: '07', title: 'Angular Template Control Flow', status: 'In progress' },
   { no: '08', title: 'Parent → Child Communication with input()', status: 'Not Started' },
   { no: '09', title: 'Child → Parent Communication with output()', status: 'Not Started' },
   { no: '10', title: 'Writable Signals', status: 'Not Started' },
@@ -60,5 +60,18 @@ export class TopicCatalogComponent {
   }
   restore():void{
     this.topics=[...ANGULAR_TOPICS]
+  }
+  filter:string="All"
+  setFilter(value:string):void
+  {
+   this.filter=value
+  }
+  visibleTopics()
+  {
+    if(this.filter==="All")
+    {
+      return this.topics
+    }
+    return this.topics.filter((topic)=>topic.status==this.filter)
   }
 }
