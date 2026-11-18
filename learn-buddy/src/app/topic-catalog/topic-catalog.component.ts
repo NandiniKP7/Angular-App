@@ -1,15 +1,16 @@
 
 import { Component } from '@angular/core';
+import { TopicCardComponent } from '../topic-card/topic-card.component';
 
 const ANGULAR_TOPICS = [
   { no: '01', title: 'Angular Application Setup & Architecture', status: 'done' },
   { no: '02', title: 'String Interpolation', status: 'done' },
   { no: '03', title: 'Components', status: 'done' },
   { no: '04', title: 'Property Binding', status: 'done' },
-  { no: '05', title: 'Event Binding', status: 'done' },
-  { no: '06', title: 'Two-Way Binding', status: 'done' },
+  { no: '05', title: 'Event Binding', status: 'in-progress' },
+  { no: '06', title: 'Two-Way Binding', status: 'in-progress' },
   { no: '07', title: 'Angular Template Control Flow', status: 'in-progress' },
-  { no: '08', title: 'Parent → Child Communication with input()', status: 'not-started' },
+  { no: '08', title: 'Parent → Child Communication with input()', status: 'in-progress' },
   { no: '09', title: 'Child → Parent Communication with output()', status: 'not-started' },
   { no: '10', title: 'Writable Signals', status: 'not-started' },
   { no: '11', title: 'Computed Signals', status: 'not-started' },
@@ -49,7 +50,7 @@ const ANGULAR_TOPICS = [
 ];
 
 @Component({
-  imports: [],
+  imports: [TopicCardComponent],
   selector: 'app-topic-catalog',
   styleUrl: './topic-catalog.component.css',
   templateUrl: './topic-catalog.component.html',

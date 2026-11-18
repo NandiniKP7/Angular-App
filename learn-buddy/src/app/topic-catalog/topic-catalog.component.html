@@ -3,8 +3,8 @@
   @if (filter === 'all') {
     <p class="sub">{{ topics.length }} of 44 topics shown</p>
   } @else {
-  <p class="sub">{{ visibleTopics().length }} topics match this filter</p>
-}
+    <p class="sub">{{ visibleTopics().length }} topics match this filter</p>
+  }
 
   <div class="chips">
     <button class="chip" [class.on]="filter === 'all'" (click)="setFilter('all')">All</button>
@@ -24,25 +24,12 @@
     <button (click)="restore()">Restore list</button>
   </div>
 
-  <ul class="topic-list">
+  <div class="cards">
     @for (topic of visibleTopics(); track topic.no; let last=$last, odd=$odd) {
-      <li class="topic-row" [class.last]="last" [class.odd]="odd">
-        <span class="num">{{ topic.no }}.</span>
-        <span class="title">{{ topic.title }}</span>
-        @switch (topic.status) {
-          @case ('done') {
-            <span class="badge done">Completed</span>
-          }
-          @case ('in-progress') {
-            <span class="badge progress">In progress</span>
-          }
-          @default {
-            <span class="badge">Not started</span>
-          }
-        }
-      </li>
-    } @empty {
-      <li class="empty">No topics to show.</li>
+      <app-topic-card [no]="+topic.no" [title]="topic.title" [status]="topic.status" />
     }
-  </ul>
+     @empty {
+    <p class="empty">No topics to show.</p>
+  }
+  </div>
 </section>

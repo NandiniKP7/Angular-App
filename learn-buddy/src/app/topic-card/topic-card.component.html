@@ -1,0 +1,17 @@
+<article class="topic-card">
+  <span class="no">{{ no() }}</span>
+  <div class="body">
+    <strong>{{ title() }}</strong>
+    @switch (status()) {
+      @case ('in-progress') {
+        <span class="badge progress">In progress</span>
+      }
+      @case ('done') {
+        <span class="badge done">Completed</span>
+      }
+      @default {
+        <span class="badge">Not started</span>
+      }
+    }
+  </div>
+</article>
