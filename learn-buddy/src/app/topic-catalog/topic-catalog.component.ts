@@ -1,9 +1,7 @@
-
 import { Component } from '@angular/core';
 import { TopicCardComponent } from '../topic-card/topic-card.component';
 import { Topic } from '../models/topic';
 import { ANGULAR_TOPICS } from '../data/angular-topics';
-
 
 @Component({
   imports: [TopicCardComponent],
@@ -12,8 +10,29 @@ import { ANGULAR_TOPICS } from '../data/angular-topics';
   templateUrl: './topic-catalog.component.html',
 })
 export class TopicCatalogComponent {
-  topics:Topic[]= [...ANGULAR_TOPICS];
+  topics: Topic[] = [...ANGULAR_TOPICS];
+  lastAction: string = 'Nothing yet';
   filter: string = 'all';
+
+  onOpen(no: number): void {
+    this.lastAction = 'Opened topic ' + no;
+  }
+  onComplete(no: number): void {
+    this.topics = this.topics.map((topic): Topic => {
+      if (topic.no === no) {
+        return {
+          ...topic,
+          status: 'done',
+          subTopicsDone: topic.subTopicsTotal,
+        };
+      }
+      return topic;
+    });
+    this.lastAction = 'Completed topic ' + no;
+  }
+  onReview(no: number): void {
+    this.lastAction = 'Reviewed topic ' + no;
+  }
 
   clear(): void {
     this.topics = [];
@@ -27,7 +46,7 @@ export class TopicCatalogComponent {
     this.filter = value;
   }
 
-  visibleTopics():Topic[] {
+  visibleTopics(): Topic[] {
     if (this.filter === 'all') {
       return this.topics;
     }

@@ -1,5 +1,7 @@
+
 <section class="card">
   <h3>Angular Roadmap</h3>
+
   @if (filter === 'all') {
     <p class="sub">{{ topics.length }} of 44 topics shown</p>
   } @else {
@@ -7,7 +9,9 @@
   }
 
   <div class="chips">
-    <button class="chip" [class.on]="filter === 'all'" (click)="setFilter('all')">All</button>
+    <button class="chip" [class.on]="filter === 'all'" (click)="setFilter('all')">
+      All
+    </button>
     <button class="chip" [class.on]="filter === 'done'" (click)="setFilter('done')">
       Completed
     </button>
@@ -25,11 +29,17 @@
   </div>
 
   <div class="cards">
-    @for (topic of visibleTopics(); track topic.no; let last=$last, odd=$odd) {
-      <app-topic-card [topic]="topic" />
+    @for (topic of visibleTopics(); track topic.no) {
+      <app-topic-card
+        [topic]="topic"
+        (opened)="onOpen($event)"
+        (completed)="onComplete($event)"
+        (reviewRequested)="onReview($event)"
+      />
+    } @empty {
+      <p class="empty">No topics to show.</p>
     }
-     @empty {
-    <p class="empty">No topics to show.</p>
-  }
   </div>
+
+  <p class="last-action">Last action: {{ lastAction }}</p>
 </section>

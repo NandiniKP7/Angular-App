@@ -1,5 +1,6 @@
 <article class="topic-card" [class.compact]="compact()">
   <span class="no">{{ topic().no }}</span>
+
   <div class="body">
     <span class="title">{{topic().title}}</span>
     @switch (topic().status) {
@@ -20,5 +21,10 @@
         <div class="bar-fill" [style.width.%]="percent()"></div>.
       </div>
     }
+    <div class="actions">
+      <button (click)="opened.emit(topic().no)">Open</button>
+      <button (click)="completed.emit(topic().no)">Complete</button>
+      <button (click)="reviewRequested.emit(topic().no)">Review</button>
+    </div>
   </div>
 </article>

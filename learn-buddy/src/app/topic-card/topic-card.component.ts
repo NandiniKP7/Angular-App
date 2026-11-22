@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, input } from '@angular/core';
+import { booleanAttribute, Component, input, output } from '@angular/core';
 import { Topic } from '../models/topic';
 
 @Component({
@@ -10,7 +10,9 @@ import { Topic } from '../models/topic';
 export class TopicCardComponent {
   topic = input.required<Topic>();
   compact = input(false, { transform: booleanAttribute });
-
+  opened = output<number>();
+  completed = output<number>();
+  reviewRequested = output<number>();
   percent(): number {
     const topic = this.topic();
     if (topic.subTopicsTotal === 0) {

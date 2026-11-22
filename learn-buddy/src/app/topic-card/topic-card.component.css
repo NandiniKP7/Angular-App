@@ -73,3 +73,17 @@
 .compact {
   padding: 8px 12px;
 }
+.actions
+{
+display: flex; 
+flex-wrap: wrap; 
+gap: 6px; 
+margin-top: 10px;
+}
+.actions button
+{
+  background: white; color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 5px 10px; font-size: 12px; font-weight: bold; cursor: pointer;
+}
+.actions button:disabled{
+  color: #aab7bd; cursor: not-allowed;
+}
