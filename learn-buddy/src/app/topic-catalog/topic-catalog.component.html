@@ -26,7 +26,7 @@
 
   <div class="cards">
     @for (topic of visibleTopics(); track topic.no; let last=$last, odd=$odd) {
-      <app-topic-card [no]="+topic.no" [title]="topic.title" [status]="topic.status" />
+      <app-topic-card [topic]="topic" />
     }
      @empty {
     <p class="empty">No topics to show.</p>

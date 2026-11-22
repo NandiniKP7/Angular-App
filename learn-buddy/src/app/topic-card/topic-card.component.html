@@ -1,8 +1,8 @@
-<article class="topic-card">
-  <span class="no">{{ no() }}</span>
+<article class="topic-card" [class.compact]="compact()">
+  <span class="no">{{ topic().no }}</span>
   <div class="body">
-    <strong>{{ title() }}</strong>
-    @switch (status()) {
+    <span class="title">{{topic().title}}</span>
+    @switch (topic().status) {
       @case ('in-progress') {
         <span class="badge progress">In progress</span>
       }
@@ -12,6 +12,13 @@
       @default {
         <span class="badge">Not started</span>
       }
+    }
+    @if(!compact())
+    {
+      <small>Subtopics:{{topic().subTopicsDone}}/{{ topic().subTopicsTotal }}</small>
+      <div class="bar" [attr.aria-label]="'Progress ' + percent() + ' percent'">
+        <div class="bar-fill" [style.width.%]="percent()"></div>.
+      </div>
     }
   </div>
 </article>

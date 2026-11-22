@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { booleanAttribute, Component, input } from '@angular/core';
+import { Topic } from '../models/topic';
 
 @Component({
   imports: [],
@@ -7,8 +8,14 @@ import { Component, input } from '@angular/core';
   templateUrl: './topic-card.component.html',
 })
 export class TopicCardComponent {
-  no=input.required<number>();
- title = input('Untitled topic');
-  status = input('not-started');
+  topic = input.required<Topic>();
+  compact = input(false, { transform: booleanAttribute });
 
+  percent(): number {
+    const topic = this.topic();
+    if (topic.subTopicsTotal === 0) {
+      return 0;
+    }
+    return Math.round((topic.subTopicsDone / topic.subTopicsTotal) * 100);
+  }
 }
