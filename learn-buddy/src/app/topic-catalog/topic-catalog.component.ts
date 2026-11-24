@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { TopicCardComponent } from '../topic-card/topic-card.component';
 import { Topic } from '../models/topic';
 import { ANGULAR_TOPICS } from '../data/angular-topics';
@@ -10,15 +10,21 @@ import { ANGULAR_TOPICS } from '../data/angular-topics';
   templateUrl: './topic-catalog.component.html',
 })
 export class TopicCatalogComponent {
-  topics: Topic[] = [...ANGULAR_TOPICS];
-  lastAction: string = 'Nothing yet';
-  filter: string = 'all';
+  topics = signal<Topic[]>([...ANGULAR_TOPICS]);
+  filter = signal<string>('all');
+  selectedNo=signal<number|null>(null);
+  lastAction=signal<string>('Nothing yet')
 
+  setFilter(value:string)
+  {
+    this.filter.set(value)
+  }
   onOpen(no: number): void {
-    this.lastAction = 'Opened topic ' + no;
+    this.selectedNo.set(no)
+    this.lastAction.set('Opened topic ' + no);
   }
   onComplete(no: number): void {
-    this.topics = this.topics.map((topic): Topic => {
+    this.topics.set(this.topics().map((topic): Topic => {
       if (topic.no === no) {
         return {
           ...topic,
@@ -27,29 +33,32 @@ export class TopicCatalogComponent {
         };
       }
       return topic;
-    });
-    this.lastAction = 'Completed topic ' + no;
+    }));
+    this.lastAction.set('Completed topic ' + no);
   }
   onReview(no: number): void {
-    this.lastAction = 'Reviewed topic ' + no;
+    this.selectedNo.set(no)
+    this.lastAction.set( 'Reviewed topic ' + no);
   }
 
   clear(): void {
-    this.topics = [];
+    this.topics.set([])
   }
 
   restore(): void {
-    this.topics = [...ANGULAR_TOPICS];
+    this.topics.set([...ANGULAR_TOPICS]) ;
   }
 
-  setFilter(value: string): void {
-    this.filter = value;
+  selectedTopic():Topic|undefined
+  {
+   return this.topics().find(topic=>topic.no===this.selectedNo())
   }
+
 
   visibleTopics(): Topic[] {
-    if (this.filter === 'all') {
-      return this.topics;
+    if (this.filter() === 'all') {
+      return this.topics();
     }
-    return this.topics.filter((topic) => topic.status === this.filter);
+    return this.topics().filter((topic) => topic.status === this.filter());
   }
 }

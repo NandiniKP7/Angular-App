@@ -85,3 +85,10 @@
   border-color: var(--green);
   color: white;
 }
+.selected {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--mint);
+  border-radius: 10px;
+  font-size: 14px;
+}

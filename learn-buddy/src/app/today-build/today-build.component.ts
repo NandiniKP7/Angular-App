@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './today-build.component.html',
 })
 export class TodayBuildComponent {
-  topicNo:string="09";
-  topicTitle:string="Child → Parent Communication with output()'"
+  topicNo:string="10";
+  topicTitle:string="Writable Signals"
 }

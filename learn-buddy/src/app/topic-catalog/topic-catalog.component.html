@@ -2,23 +2,23 @@
 <section class="card">
   <h3>Angular Roadmap</h3>
 
-  @if (filter === 'all') {
-    <p class="sub">{{ topics.length }} of 44 topics shown</p>
+  @if (filter() === 'all') {
+    <p class="sub">{{ topics().length }} of 44 topics shown</p>
   } @else {
     <p class="sub">{{ visibleTopics().length }} topics match this filter</p>
   }
 
   <div class="chips">
-    <button class="chip" [class.on]="filter === 'all'" (click)="setFilter('all')">
+    <button class="chip" [class.on]="filter() === 'all'" (click)="setFilter('all')">
       All
     </button>
-    <button class="chip" [class.on]="filter === 'done'" (click)="setFilter('done')">
+    <button class="chip" [class.on]="filter() === 'done'" (click)="setFilter('done')">
       Completed
     </button>
-    <button class="chip" [class.on]="filter === 'in-progress'" (click)="setFilter('in-progress')">
+    <button class="chip" [class.on]="filter ()=== 'in-progress'" (click)="setFilter('in-progress')">
       In progress
     </button>
-    <button class="chip" [class.on]="filter === 'not-started'" (click)="setFilter('not-started')">
+    <button class="chip" [class.on]="filter() === 'not-started'" (click)="setFilter('not-started')">
       Not started
     </button>
   </div>
@@ -40,6 +40,14 @@
       <p class="empty">No topics to show.</p>
     }
   </div>
-
-  <p class="last-action">Last action: {{ lastAction }}</p>
+@if(selectedTopic(); as chosen)
+{
+ <div class="selected">
+  Selected topic: <strong>{{ chosen.title }}</strong> ({{ chosen.status }})
+</div>
+}
+<div class="selected">
+  Selected topic: none. Click Open on a card.
+</div>
+  <p class="last-action">Last action: {{ lastAction() }}</p>
 </section>
