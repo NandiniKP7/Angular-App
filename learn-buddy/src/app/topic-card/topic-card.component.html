@@ -2,7 +2,14 @@
   <span class="no">{{ topic().no }}</span>
 
   <div class="body">
-    <span class="title">{{topic().title}}</span>
+    <strong>{{topic().title}}</strong>
+    <button
+  class="star"
+  (click)="favoriteToggled.emit(topic().no)"
+  [attr.aria-label]="favorite() ? 'Remove from favorites' : 'Add to favorites'">
+  {{ favorite() ? '★' : '☆' }}
+</button>
+    
     @switch (topic().status) {
       @case ('in-progress') {
         <span class="badge progress">In progress</span>

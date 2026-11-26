@@ -12,6 +12,8 @@ export class TopicCardComponent {
   compact = input(false, { transform: booleanAttribute });
   opened = output<number>();
   completed = output<number>();
+  favorite=input(false)
+  favoriteToggled=output<number>();
   reviewRequested = output<number>();
   percent(): number {
     const topic = this.topic();

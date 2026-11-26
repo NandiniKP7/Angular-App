@@ -87,3 +87,7 @@ margin-top: 10px;
 .actions button:disabled{
   color: #aab7bd; cursor: not-allowed;
 }
+.star
+{
+  float: right; background: none; border: 0; font-size: 18px; color: #f0a500; cursor: pointer;
+}
